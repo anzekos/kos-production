@@ -68,6 +68,7 @@
   }
 }
 
+/* Added essential utility classes for animations and effects */
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 1s ease-in-out;
@@ -108,30 +109,13 @@
   }
 }
 
-/* Faster pulse animation */
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1);
-  }
-}
-
-.animate-pulse {
-  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Rotating images styles */
+/* Optimized rotating images styles */
 .rotating-images {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 300px;
   overflow: hidden;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
 }
 
 .image-slide {
@@ -153,189 +137,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: hsl(var(--muted));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6b46c1;
+  background: hsl(var(--primary));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
-}
-
-.animate-fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-fade-in-up.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.animate-fade-in-left {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-fade-in-left.in-view {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.animate-fade-in-right {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-fade-in-right.in-view {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.animate-scale-in {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate-scale-in.in-view {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.stagger-1 {
-  transition-delay: 0.1s;
-}
-
-.stagger-2 {
-  transition-delay: 0.2s;
-}
-
-.stagger-3 {
-  transition-delay: 0.3s;
-}
-
-.stagger-4 {
-  transition-delay: 0.4s;
-}
-
-.stagger-5 {
-  transition-delay: 0.5s;
-}
-
-.stagger-6 {
-  transition-delay: 0.6s;
-}
-
-/* Mouse-following shadow effects for buttons */
-.button-shadow-effect {
-  position: relative;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.button-shadow-effect::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(168, 85, 247, 0.3) 0%,
-    rgba(236, 72, 153, 0.2) 30%,
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.button-shadow-effect:hover::before {
-  opacity: 1;
-}
-
-.button-shadow-effect:hover {
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 0 40px rgba(236, 72, 153, 0.2), 0 8px 32px rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
-}
-
-/* Specific styles for different button variants */
-.button-shadow-primary::before {
-  background: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(168, 85, 247, 0.4) 0%,
-    rgba(236, 72, 153, 0.3) 30%,
-    transparent 70%
-  );
-}
-
-.button-shadow-outline::before {
-  background: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(168, 85, 247, 0.2) 0%,
-    rgba(168, 85, 247, 0.1) 40%,
-    transparent 70%
-  );
-}
-
-.button-shadow-white::before {
-  background: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    transparent 70%
-  );
-}
-
-.button-shadow-white:hover {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-/* Social media button effects */
-.social-button-effect {
-  position: relative;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.social-button-effect::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(168, 85, 247, 0.3) 0%,
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.social-button-effect:hover::before {
-  opacity: 1;
-}
-
-.social-button-effect:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: hsl(var(--primary) / 0.8);
 }
