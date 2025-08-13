@@ -12,9 +12,6 @@ const nextConfig = {
   },
   basePath: '',
   assetPrefix: '',
-  experimental: {
-    optimizeCss: true,
-  },
 }
 
 export default nextConfig
